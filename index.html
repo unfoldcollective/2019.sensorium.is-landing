@@ -33,27 +33,31 @@
     var vimeoIframe = document.querySelector('#bg-video');
     var player = new Vimeo.Player(vimeoIframe);
 
-    $(".js-video-control").click(function() {
+    $(".js-video-control").click(function(e) {
       isPaused = $(this).hasClass('paused');
       if (isPaused) {
         player.play();
         $(this).removeClass('paused');
+        e.preventDefault();
       }
       else {
         player.pause();
         $(this).addClass('paused');
+        e.preventDefault();
       }
     });
     
-    $(".js-audio-control").click(function() {
+    $(".js-audio-control").click(function(e) {
       isUnmuted = $(this).hasClass('unmuted');
       if (isUnmuted) {
         player.setVolume(0);
         $(this).removeClass('unmuted');
+        e.preventDefault();
       }
       else {
         player.setVolume(1);
         $(this).addClass('unmuted');
+        e.preventDefault();
       }
     });
     
