@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sensorium 2019</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" type="text/css" href="./css/tachyons.min.css">
+  <link rel="stylesheet" type="text/css" href="./css/bg-video.css">
+  
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+  crossorigin="anonymous"></script>
+  <script src="https://player.vimeo.com/api/player.js"></script>
+</head>
+<body>
+  <div class="vimeo-wrapper">
+    <iframe
+      id="bg-video"
+      src="https://player.vimeo.com/video/286525537?background=1&autoplay=0&loop=1&byline=0&title=0" 
+      frameborder="0" 
+      webkitallowfullscreen mozallowfullscreen allowfullscreen
+    ></iframe>
+
+    <!-- video control : play/pause -->
+    <a class="absolute-center video-control js-video-control paused" href="#" ></a>
+    <!-- audio control : mute/unmute -->
+    <a class="absolute-bottomleft audio-control js-audio-control unmuted" href="#"></a>
+
+  </div>
+  <script>
+    var vimeoIframe = document.querySelector('#bg-video');
+    var player = new Vimeo.Player(vimeoIframe);
+
+    $(".js-video-control").click(function() {
+      isPaused = $(this).hasClass('paused');
+      if (isPaused) {
+        player.play();
+        $(this).removeClass('paused');
+      }
+      else {
+        player.pause();
+        $(this).addClass('paused');
+      }
+    });
+    
+    $(".js-audio-control").click(function() {
+      isUnmuted = $(this).hasClass('unmuted');
+      if (isUnmuted) {
+        player.setVolume(0);
+        $(this).removeClass('unmuted');
+      }
+      else {
+        player.setVolume(1);
+        $(this).addClass('unmuted');
+      }
+    });
+    
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
