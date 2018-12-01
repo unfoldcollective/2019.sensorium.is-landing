@@ -5,63 +5,119 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
+  <link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="./css/tachyons.min.css">
   <link rel="stylesheet" type="text/css" href="./css/bg-video.css">
+  <link rel="stylesheet" type="text/css" href="./css/2019.landing.css">
   
   <script
-  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-  integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
-  crossorigin="anonymous"></script>
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
   <script src="https://player.vimeo.com/api/player.js"></script>
 </head>
-<body>
-  <div class="vimeo-wrapper">
-    <iframe
-      id="bg-video"
-      src="https://player.vimeo.com/video/286525537?background=1&autoplay=0&loop=1&byline=0&title=0" 
-      frameborder="0" 
-      webkitallowfullscreen mozallowfullscreen allowfullscreen
-    ></iframe>
+<body class="h-100 pa0 ma0 extra-light">
+    <div class="vimeo-wrapper">
+        <iframe
+        id="bg-video"
+        src="https://player.vimeo.com/video/286525537?background=1&autoplay=0&loop=1&byline=0&title=0" 
+        frameborder="0" 
+        webkitallowfullscreen mozallowfullscreen allowfullscreen
+        ></iframe>
+    </div>
+    <div class="min-h-100 relative white mh2 mh4-m mh5-l">
+        <header class="js-video-fade">
+            <a class="bg-black-50 fixed right-0 f6 tc link grow ba bw1 ph3 pv2 ma3 ma4-l dn dib-ns white regular mr6 mr6-l" href="https://sensorium.is" title="2017 website">
+                2018
+            </a>
+            <a class="bg-black-50 fixed right-0 f6 tc link grow ba bw1 ph3 pv2 ma3 ma4-l dn dib-ns white regular" href="#" title="Sensorium Festival Tickets">
+                Tickets
+            </a>
+            <img class="logotype" src="../img/logo-sensorium-white.svg" alt="Sensorium logo">
+            
+            <div class="text-shadow">
+                    <h1 class="peall f3 f2-ns fw1 lh-title measure regular">Celebrating humane application of creative technology in art, design and performance</h1>
+                    <h2 class="peall f4 f3-ns fw1 lh-title measure regular">7-9 June 2019, Bratislava</h2>
+            </div>
+        </header>
+        
+        <!-- video control : play/pause -->
+        <a class="dib video-control js-video-control" href="#" ></a>
+        <!-- audio control : mute/unmute -->
+        <a class="dib audio-control js-audio-control" href="#"></a>
 
-    <!-- video control : play/pause -->
-    <a class="absolute-center video-control js-video-control paused" href="#" ></a>
-    <!-- audio control : mute/unmute -->
-    <a class="absolute-bottomleft audio-control js-audio-control unmuted" href="#"></a>
+        <main class="js-video-fade">
+            <a class="bg-black-50 white f5 f3-m f2-l tc link grow ba bw1 ph3 pv2 mv3 dib light" href="{{config.site.ticket_url}}" title="Sensorium Festival Tickets">
+                Get tickets now
+            </a>
+        </main>
+        <div class="mt4 mt5-l pb6 pb7-l"></div>
+        <footer class="js-video-fade absolute bottom-0 w-100 h4 h5-l tc">
+            <div class="text-shadow regular">Be the first to hear updates</div>
+            <nav class="tc dib v-mid f3 f2-l ma2 relative">
+                <div class="dib mr2">
+                    <a class="link dib v-mid" href="mailto:hello@unfold.is">
+                        <i class="mv3 fa fa-envelope pr2"></i>
+                    </a>
+                    <a class="link dib v-mid" target="_blank" href="https://www.facebook.com/sensoriumis" title="Sensorium Festival">
+                        <i class="mv3 fa fa-facebook ph1"></i>
+                    </a>
+                    <a class="link dib v-mid" target="_blank" href="https://twitter.com/SensoriumIs" title="@SensoriumIs">
+                        <i class="mv3 fa fa-twitter ph1"></i>
+                    </a>
+                    <a class="link dib v-mid" target="_blank" href="https://www.instagram.com/sensorium.is/" title="sensorium.is">
+                        <i class="mv3 fa fa-instagram ph1"></i>
+                    </a>
+                </div>
+                <a class="bg-black-50 light link dib v-mid f6 f5-l link grow ba bw1 ph3 pv2 dib white" href="http://eepurl.com/cAuT-X" target="_blank">
+                    Newsletter
+                </a>
+                <a class="dib f6 f5-l light ph3 mv3" href="https://2017.sensorium.is">Sensorium 2017</a>
+                <a class="dib f6 f5-l light ph3 mv3" href="https://2018.sensorium.is">Sensorium 2018</a>
+            </nav>
+            <h4 class="mb3 text-shadow">Brought to you by</h4>
+            <a class="link dib v-mid dim mv2 mv3-l " href="http://www.unfold.is/" target="_blank">
+                <img class="w3 w4-l" src="../img/logo-unfold-white.png" alt="Unfold">
+            </a>
+        </footer>
+    </div>
 
-  </div>
-  <script>
-    var vimeoIframe = document.querySelector('#bg-video');
-    var player = new Vimeo.Player(vimeoIframe);
+    <script>
+        var vimeoIframe = document.querySelector('#bg-video');
+        var player = new Vimeo.Player(vimeoIframe);
 
-    $(".js-video-control").click(function(e) {
-      isPaused = $(this).hasClass('paused');
-      if (isPaused) {
-        player.play();
-        $(this).removeClass('paused');
-        e.preventDefault();
-      }
-      else {
-        player.pause();
-        $(this).addClass('paused');
-        e.preventDefault();
-      }
-    });
-    
-    $(".js-audio-control").click(function(e) {
-      isUnmuted = $(this).hasClass('unmuted');
-      if (isUnmuted) {
-        player.setVolume(0);
-        $(this).removeClass('unmuted');
-        e.preventDefault();
-      }
-      else {
-        player.setVolume(1);
-        $(this).addClass('unmuted');
-        e.preventDefault();
-      }
-    });
-    
-  </script>
+        $(".js-video-control").click(function(e) {
+            isPlaying = $(this).hasClass('playing');
+            if (!isPlaying) {
+                player.play();
+                $(this).addClass('playing');
+                e.preventDefault();
+                $('.js-video-fade').fadeTo(800, 0);
+                $('body').toggleClass('overflow-hidden');
+            }
+            else {
+                player.pause();
+                $(this).removeClass('playing');
+                e.preventDefault();
+                $('.js-video-fade').fadeTo(400, 1);
+                $('body').toggleClass('overflow-hidden');
+            }
+        });
+
+        $(".js-audio-control").click(function(e) {
+            isMuted = $(this).hasClass('muted');
+            if (!isMuted) {
+                player.setVolume(0);
+                $(this).addClass('muted');
+                e.preventDefault();
+            }
+            else {
+                player.setVolume(1);
+                $(this).removeClass('muted');
+                e.preventDefault();
+            }
+        });
+    </script>
 </body>
 </html>
 

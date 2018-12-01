@@ -26,7 +26,7 @@
 
 /* controls */
 .video-control {
-  display: block;
+  /*display: block;*/
   width: 44px; /*fallback*/
   height: 44px; /*fallback*/
   width: 10vw;
@@ -34,22 +34,21 @@
   min-width: 44px;
   min-height: 44px;
 
-  background-image: url('../img/icon-pause.svg');
+  background-image: url('../img/icon-play.svg');  
   background-size: contain;
   background-repeat: no-repeat;
 
-  opacity: 0;
   transition: opacity 0.3s;
 }
 .video-control:hover {
   opacity: 1 !important;
 }
-.video-control.paused {
-  background-image: url('../img/icon-play.svg');
+.video-control.playing {
+  background-image: url('../img/icon-pause.svg');
 }
 
 .audio-control {
-  display: block;
+  /*display: block;*/
   width: 34px; /*fallback*/
   height: 34px; /*fallback*/
   width: 5vw;
@@ -57,18 +56,17 @@
   min-width: 34px;
   min-height: 34px;
 
-  background-image: url('../img/icon-unmute.svg');
+  background-image: url('../img/icon-mute.svg');
   background-size: contain;
   background-repeat: no-repeat;
 
-  opacity: 0;
   transition: opacity 0.3s;
 }
 .audio-control:hover {
   opacity: 1 !important;
 }
-.audio-control.unmuted {
-  background-image: url('../img/icon-mute.svg');
+.audio-control.muted {
+  background-image: url('../img/icon-unmute.svg');
 }
 
 /* utilities */
